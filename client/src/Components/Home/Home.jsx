@@ -20,7 +20,6 @@ const Dashboard = ({ onAlgorithmSelect, onDataSubmit }) => {
         <h1 className="text-3xl font-bold text-white text-center mb-6">
           Animated Sorting Simulator
         </h1>
-        <h1>lorem</h1>
 
         <div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-8">
