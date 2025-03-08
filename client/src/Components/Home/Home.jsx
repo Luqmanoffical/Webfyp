@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Header/Header";
+import SortingVisualizer from "./Virsulization";
 
 const Dashboard = ({ onAlgorithmSelect, onDataSubmit }) => {
   const [inputData, setInputData] = useState("");
@@ -161,7 +162,9 @@ const Home = () => {
     <div className=" w-full min-h-screen  flex flex-col justify-center items-center">
       <Navbar />
       <div className="w-full max-w-4xl px-6 py-8">
-        <Dashboard
+        <SortingVisualizer />
+
+        {/* <Dashboard
           onAlgorithmSelect={setAlgorithm}
           onDataSubmit={handleDataSubmit}
         />
@@ -173,7 +176,7 @@ const Home = () => {
             isRunning={isRunning}
             onControl={handleControl}
           />
-        )}
+        )} */}
       </div>
       <div className="w-full">
         <Footer />
