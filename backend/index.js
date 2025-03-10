@@ -9,6 +9,7 @@ app.use(express.json());
 
 const Port = process.env.PORT;
 // Middleware
+app.use(cors());
 
 app.use(bodyParser.json());
 // Allow CORS for all origins

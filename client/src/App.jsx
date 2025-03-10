@@ -6,7 +6,6 @@ import Signup from "./Components/Signup/Signup";
 import Register from "./Components/Login/Login";
 import Setting from "./Components/Setting/Setting";
 import History from "./Components/History/History";
-import { MantineProvider } from "@mantine/core";
 const App = () => {
   return (
     <BrowserRouter>

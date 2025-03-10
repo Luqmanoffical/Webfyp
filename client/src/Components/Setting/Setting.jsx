@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import Navbar from "../Header/Header"; // Assuming you have Navbar component
-import Footer from "../Footer/Footer"; // Assuming you have Footer component
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Navbar from "../Header/Header";
+import Footer from "../Footer/Footer";
 import setting from "../../assets/setting.png";
+
+import { useNavigate } from "react-router-dom";
 const Setting = () => {
+  
+    const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,12 +23,38 @@ const Setting = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    alert("Password changed successfully");
-  };
-
   const newPassword = watch("newPassword");
+
+  const onSubmit = async (data) => {
+    console.log("Form Data:", data);
+
+    try {
+      const response = await fetch("http://localhost:3000/restpass", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+
+        toast.success("Password changed successfully!");
+
+                // Wait for 2 seconds before navigating
+                setTimeout(() => {
+                  navigate("/login");
+                }, 2000);
+        
+      } else {
+        toast.error(result.message || "Failed to change password",);
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <div className="overflow-hidden">
@@ -36,13 +68,12 @@ const Setting = () => {
           <p className="text-sm pt-2 sm:text-[20px] text-center">
             Update your password to secure your account.
           </p>
-
           <img src={setting} className="w-[500px]" />
         </div>
 
         {/* Right Section - Form */}
         <div className="flex-1 flex justify-center items-center p-6 h-screen">
-          <div className="p-8 w-[500px] h-[600px] mt-24 rounded-2xl transform transition-transform  shadow-lg">
+          <div className="p-8 w-[500px] h-[700px] mt-24 rounded-2xl transform transition-transform shadow-lg">
             <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#566fdf] to-[purple] tracking-wider mt-10 text-center drop-shadow-lg">
               Change Your Password
             </h1>
@@ -50,19 +81,39 @@ const Setting = () => {
               Update your password to secure your account.
             </p>
             <form onSubmit={handleSubmit(onSubmit)}>
+              {/* Email */}
+              <div className="mb-6">
+                <label className="block text-white text-sm font-semibold mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  {...register("Email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Enter a valid email address",
+                    },
+                  })}
+                  className={`w-full p-3 border border-gray-300 rounded-lg text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 ${
+                    errors.email ? "border-red-500" : ""
+                  }`}
+                  placeholder="Enter your email"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email.message}</p>
+                )}
+              </div>
+
               {/* Old Password */}
               <div className="mb-6">
-                <label
-                  className="block text-white text-sm font-semibold mb-1"
-                  htmlFor="oldPassword"
-                >
+                <label className="block text-white text-sm font-semibold mb-1">
                   Old Password
                 </label>
                 <div className="relative">
                   <input
                     type={showOldPassword ? "text" : "password"}
-                    id="oldPassword"
-                    {...register("oldPassword", {
+                    {...register("OldPassword", {
                       required: "Old password is required",
                     })}
                     className={`w-full p-3 border border-gray-300 rounded-lg text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 ${
@@ -78,25 +129,19 @@ const Setting = () => {
                   </span>
                 </div>
                 {errors.oldPassword && (
-                  <p className="text-red-500 text-sm">
-                    {errors.oldPassword.message}
-                  </p>
+                  <p className="text-red-500 text-sm">{errors.oldPassword.message}</p>
                 )}
               </div>
 
               {/* New Password */}
               <div className="mb-6">
-                <label
-                  className="block text-white text-sm font-semibold mb-1"
-                  htmlFor="newPassword"
-                >
+                <label className="block text-white text-sm font-semibold mb-1">
                   New Password
                 </label>
                 <div className="relative">
                   <input
                     type={showNewPassword ? "text" : "password"}
-                    id="newPassword"
-                    {...register("newPassword", {
+                    {...register("NewPassword", {
                       required: "New password is required",
                       minLength: {
                         value: 8,
@@ -116,24 +161,18 @@ const Setting = () => {
                   </span>
                 </div>
                 {errors.newPassword && (
-                  <p className="text-red-500 text-sm">
-                    {errors.newPassword.message}
-                  </p>
+                  <p className="text-red-500 text-sm">{errors.newPassword.message}</p>
                 )}
               </div>
 
-              {/* Confirm Password */}
+              {/* Confirm Password
               <div className="mb-6">
-                <label
-                  className="block text-white text-sm font-semibold mb-1"
-                  htmlFor="confirmPassword"
-                >
+                <label className="block text-white text-sm font-semibold mb-1">
                   Confirm New Password
                 </label>
                 <div className="relative">
                   <input
                     type={showConfirmPassword ? "text" : "password"}
-                    id="confirmPassword"
                     {...register("confirmPassword", {
                       required: "Please confirm your new password",
                       validate: (value) =>
@@ -152,16 +191,14 @@ const Setting = () => {
                   </span>
                 </div>
                 {errors.confirmPassword && (
-                  <p className="text-red-500 text-sm">
-                    {errors.confirmPassword.message}
-                  </p>
+                  <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>
                 )}
-              </div>
+              </div> */}
 
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                className="w-full py-3  text-white focus:outline-none bg-gradient-to-r from-purple-900 border border-gray-100 to-purple-500 rounded transition duration-300"
+                className="w-full py-3 text-white focus:outline-none bg-gradient-to-r from-purple-900 border border-gray-100 to-purple-500 rounded transition duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -170,6 +207,8 @@ const Setting = () => {
             </form>
           </div>
         </div>
+        
+                <ToastContainer /> 
       </div>
       <Footer />
     </div>

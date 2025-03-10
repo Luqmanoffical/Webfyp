@@ -3,13 +3,18 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import Navbar from "../Header/Header";
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import LoginAnimation from "../../assets/LoginAnimation.json";
 import "./Styles.css";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     watch,
@@ -17,9 +22,37 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("Email:", data.email);
     console.log("Password:", data.password);
+  
+    try {
+      const response = await fetch("http://localhost:3000/Register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Email: data.email, // Sending email as "Email" (matches backend)
+          Password: data.password, // Sending password as "Password" (matches backend)
+        }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        toast.success("Registration successful! 🎉");
+      
+        // Wait for 2 seconds before navigating
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      }  else {
+        toast.error(result.message || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Network error. Please check your connection.");
+    }
   };
 
   return (
@@ -192,6 +225,8 @@ const Signup = () => {
               </div>
             </form>
           </div>
+          
+                  <ToastContainer /> 
         </div>
       </div>
       <Footer />

@@ -1,5 +1,5 @@
 const express = require("express");
-const {CreateAccount, Authenticate} = require("../Controllers/AuthController");
+const {CreateAccount, Authenticate, resetpass} = require("../Controllers/AuthController");
 const router = express.Router();
 
 
@@ -7,6 +7,7 @@ const router = express.Router();
 //Routes
 router.post("/Register", CreateAccount);
 router.post("/login", Authenticate);
+router.post("/restpass", resetpass);
 
 
 

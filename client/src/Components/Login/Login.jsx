@@ -3,11 +3,16 @@ import { FaEnvelope, FaLock, FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Header/Header";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import signinimg from "../../assets/signinimg.png";
 
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
+  
+    const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,9 +20,41 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Email: data.email,
+          Password: data.password,
+        }),
+      });
+  
+      const result = await response.json();
+      console.log("This is the response i am getting", result);
+      if (response.ok) {
+        console.log("Login successful:", result);
+
+        toast.success("Login Successfull ");
+        console.log("This is the Email", result.Email);
+        localStorage.setItem("Email", result.Email);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+        // You can store the token or navigate to another page here
+      } else {
+        console.error("Login failed:", result);
+        toast.error(result.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
   };
+  
 
   return (
     <div className="overflow-hidden">
@@ -93,16 +130,7 @@ const Register = () => {
                     id="password"
                     {...register("password", {
                       required: "Password is required",
-                      minLength: {
-                        value: 8,
-                        message: "Password must be at least 8 characters",
-                      },
-                      pattern: {
-                        value:
-                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                        message:
-                          "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
-                      },
+                  
                     })}
                     className={`flex-grow appearance-none outline-none bg-transparent text-gray-800 placeholder-gray-400 focus:ring-0 ${
                       errors.password ? "border-red-500" : ""
@@ -161,6 +189,7 @@ const Register = () => {
             </div>
           </div>
         </div>
+        <ToastContainer /> 
       </div>
       <Footer />
     </div>
