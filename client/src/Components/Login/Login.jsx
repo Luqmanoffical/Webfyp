@@ -11,8 +11,7 @@ import signinimg from "../../assets/signinimg.png";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -32,7 +31,7 @@ const Register = () => {
           Password: data.password,
         }),
       });
-  
+
       const result = await response.json();
       console.log("This is the response i am getting", result);
       if (response.ok) {
@@ -44,7 +43,6 @@ const Register = () => {
         setTimeout(() => {
           navigate("/");
         }, 2000);
-        // You can store the token or navigate to another page here
       } else {
         console.error("Login failed:", result);
         toast.error(result.message || "Login failed. Please try again.");
@@ -54,7 +52,6 @@ const Register = () => {
       alert("Something went wrong. Please try again later.");
     }
   };
-  
 
   return (
     <div className="overflow-hidden">
@@ -130,7 +127,6 @@ const Register = () => {
                     id="password"
                     {...register("password", {
                       required: "Password is required",
-                  
                     })}
                     className={`flex-grow appearance-none outline-none bg-transparent text-gray-800 placeholder-gray-400 focus:ring-0 ${
                       errors.password ? "border-red-500" : ""
@@ -189,7 +185,7 @@ const Register = () => {
             </div>
           </div>
         </div>
-        <ToastContainer /> 
+        <ToastContainer />
       </div>
       <Footer />
     </div>

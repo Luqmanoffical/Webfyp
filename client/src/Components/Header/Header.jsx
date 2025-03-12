@@ -15,6 +15,20 @@ const Navbar = () => {
 
   const [activeLink, setActiveLink] = useState(window.location.pathname);
 
+  const [login, setLogin] = useState(false);
+
+  useEffect(() => {
+    const data = localStorage.getItem("Email");
+    if (data) {
+      setLogin(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("Email");
+    setLogin(false);
+  };
+
   useEffect(() => {
     const handlePathChange = () => {
       setActiveLink(window.location.pathname);
@@ -81,28 +95,45 @@ const Navbar = () => {
             >
               Home
             </NavLink>
-            <NavLink
-              to="/signup"
-              onClick={() => setActiveLink("/signup")}
-              className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
-                activeLink === "/signup"
-                  ? "text-purple-400 border-b border-purple-700"
-                  : ""
-              }`}
-            >
-              Sign Up
-            </NavLink>
-            <NavLink
-              to="/login"
-              onClick={() => setActiveLink("/login")}
-              className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
-                activeLink === "/login"
-                  ? "text-purple-400 border-b border-purple-700"
-                  : ""
-              }`}
-            >
-              Sign In
-            </NavLink>
+            {login ? (
+              <div>
+                <h1
+                  onClick={handleLogout}
+                  className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                    activeLink === "/signup"
+                      ? "text-purple-400 border-b border-purple-700"
+                      : ""
+                  }`}
+                >
+                  Logout
+                </h1>
+              </div>
+            ) : (
+              <div>
+                <NavLink
+                  to="/signup"
+                  onClick={() => setActiveLink("/signup")}
+                  className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                    activeLink === "/signup"
+                      ? "text-purple-400 border-b border-purple-700"
+                      : ""
+                  }`}
+                >
+                  Sign Up
+                </NavLink>
+                <NavLink
+                  to="/login"
+                  onClick={() => setActiveLink("/login")}
+                  className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                    activeLink === "/login"
+                      ? "text-purple-400 border-b border-purple-700"
+                      : ""
+                  }`}
+                >
+                  Sign In
+                </NavLink>
+              </div>
+            )}
           </div>
         </div>
 
@@ -121,29 +152,46 @@ const Navbar = () => {
             Home
           </NavLink>
 
-          <NavLink
-            to="/signup"
-            onClick={() => setActiveLink("/signup")}
-            className={`mx-2 lg:mx-4 hover:text-purple-400 font-code text-base lg:text-lg border-b border-transparent hover:border-purple-900 ${
-              activeLink === "/signup"
-                ? "text-purple-400 border-b border-purple-700"
-                : ""
-            }`}
-          >
-            Sign Up
-          </NavLink>
-          <NavLink
-            to="/login"
-            onClick={() => setActiveLink("/login")}
-            className={`relative inline-block font-code text-sm lg:text-lg border-b-4 border-transparent px-3 py-2 rounded transition duration-300 ease-in-out transform hover:scale-105 ${
-              activeLink === "/login"
-                ? "text-purple-400 border-b border-purple-700"
-                : ""
-            }`}
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-900 border border-gray-100 to-purple-500 rounded"></span>
-            <span className="relative z-10 text-white">Sign In</span>
-          </NavLink>
+          {login ? (
+            <div>
+              <h1
+                onClick={handleLogout}
+                className={`mx-2 lg:mx-4 hover:text-purple-400 font-code text-base lg:text-lg border-b border-transparent hover:border-purple-900 ${
+                  activeLink === "/signup"
+                    ? "text-purple-400 border-b border-purple-700"
+                    : ""
+                }`}
+              >
+                Logout
+              </h1>
+            </div>
+          ) : (
+            <div>
+              <NavLink
+                to="/signup"
+                onClick={() => setActiveLink("/signup")}
+                className={`mx-2 lg:mx-4 hover:text-purple-400 font-code text-base lg:text-lg border-b border-transparent hover:border-purple-900 ${
+                  activeLink === "/signup"
+                    ? "text-purple-400 border-b border-purple-700"
+                    : ""
+                }`}
+              >
+                Sign Up
+              </NavLink>
+              <NavLink
+                to="/login"
+                onClick={() => setActiveLink("/login")}
+                className={`relative inline-block font-code text-sm lg:text-lg border-b-4 border-transparent px-3 py-2 rounded transition duration-300 ease-in-out transform hover:scale-105 ${
+                  activeLink === "/login"
+                    ? "text-purple-400 border-b border-purple-700"
+                    : ""
+                }`}
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-900 border border-gray-100 to-purple-500 rounded"></span>
+                <span className="relative z-10 text-white">Sign In</span>
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </nav>

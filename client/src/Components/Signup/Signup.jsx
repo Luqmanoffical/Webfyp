@@ -25,7 +25,7 @@ const Signup = () => {
   const onSubmit = async (data) => {
     console.log("Email:", data.email);
     console.log("Password:", data.password);
-  
+
     try {
       const response = await fetch("http://localhost:3000/Register", {
         method: "POST",
@@ -33,21 +33,20 @@ const Signup = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          Email: data.email, // Sending email as "Email" (matches backend)
-          Password: data.password, // Sending password as "Password" (matches backend)
+          Email: data.email,
+          Password: data.password,
         }),
       });
-  
+
       const result = await response.json();
-  
+
       if (response.ok) {
         toast.success("Registration successful! 🎉");
-      
-        // Wait for 2 seconds before navigating
+
         setTimeout(() => {
           navigate("/login");
         }, 2000);
-      }  else {
+      } else {
         toast.error(result.message || "Registration failed. Please try again.");
       }
     } catch (error) {
@@ -60,9 +59,6 @@ const Signup = () => {
       <Navbar />
       <div className="mt-16 min-h-screen bg-transparent flex items-center justify-center py-10">
         <div className="flex flex-col md:flex-row w-full max-w-7xl bg-transparent rounded-3xl shadow-[10px] overflow-hidden neon-border-purple">
-          {/* Neon border applied to this main div */}
-
-          {/* Left Section with Lottie Animation */}
           <div className="flex w-full md:w-1/2 bg-[#ffffff0e] p-6 md:p-12 flex-col justify-center items-center">
             <Player
               autoplay
@@ -78,7 +74,6 @@ const Signup = () => {
             </p>
           </div>
 
-          {/* Right Section with Form */}
           <div className="w-full md:w-1/2 p-6 md:p-10 bg-white">
             <h1 className="text-2xl md:text-3xl font-bold text-[#1a1a2ec0] mb-2 text-center">
               Register Your Free Account!
@@ -87,7 +82,6 @@ const Signup = () => {
               Create an Account
             </h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Email Input */}
               <div>
                 <label
                   className="block text-sm font-semibold mb-2 text-gray-700"
@@ -118,7 +112,6 @@ const Signup = () => {
                 )}
               </div>
 
-              {/* Password Input */}
               <div>
                 <label
                   className="block text-sm font-semibold mb-2 text-gray-700"
@@ -151,7 +144,6 @@ const Signup = () => {
                 )}
               </div>
 
-              {/* Confirm Password Input */}
               <div>
                 <label
                   className="block text-sm font-semibold mb-2 text-gray-700"
@@ -180,28 +172,6 @@ const Signup = () => {
                 )}
               </div>
 
-              {/* Checkbox for Terms and Conditions */}
-              {/* <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  {...register("terms", {
-                    required:
-                      "You must agree to the Terms of Use and Privacy Policy",
-                  })}
-                  className="mr-2"
-                />
-                <label htmlFor="terms" className="text-sm text-gray-700">
-                  I agree to the{" "}
-                  <a href="#" className="text-[#009ca0]">
-                    Terms of Use
-                  </a>{" "}
-                  and{" "}
-                  <a href="#" className="text-[#009ca0]">
-                    Privacy Policy
-                  </a>
-                </label>
-              </div> */}
               {errors.terms && (
                 <p className="text-red-500 text-sm mt-2">
                   {errors.terms.message}
@@ -217,7 +187,6 @@ const Signup = () => {
                   Login Now
                 </Link>{" "}
               </p>
-              {/* Submit Button */}
               <div className="flex justify-center">
                 <button className="w-40 text-white font-semibold py-3 bg-gradient-to-r from-purple-900 border border-gray-100 to-purple-500 rounded ">
                   <span> Sign Up</span>
@@ -225,8 +194,8 @@ const Signup = () => {
               </div>
             </form>
           </div>
-          
-                  <ToastContainer /> 
+
+          <ToastContainer />
         </div>
       </div>
       <Footer />
