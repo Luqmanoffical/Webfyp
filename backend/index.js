@@ -11,8 +11,10 @@ app.use(cors());
 
 app.use(bodyParser.json());
 const AuthRoute = require("./Routes/AuthRoutes");
+const SortingRoute = require("./Routes/SortingRoutes");
 
 app.use("/", AuthRoute);
+app.use("/api", SortingRoute);
 
 app.listen(Port, () => {
   console.log(`Server is running at http://localhost:${port}`);
