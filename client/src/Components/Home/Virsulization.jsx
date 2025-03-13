@@ -364,7 +364,8 @@ const SortingVisualizer = () => {
     setIsPaused(false);
   };
 
-  const handleUserInputSubmit = () => {
+ 
+  const handleUserInputSubmit = async () => {
     const type = selectedAlgorithm;
 
     if (!inputData.trim()) {
@@ -403,78 +404,36 @@ const SortingVisualizer = () => {
     setShowInputError(false);
     setInputErrorMessage("");
 
+    // Set data for visualization
     setArray(inputArray);
     setOriginalArray([...inputArray]);
     resetSortState();
     setShowGraph(true);
+
+    // Save data to database
+    try {
+      const Email = localStorage.getItem("Email");
+      const response = await fetch('http://localhost:3000/api/sorting', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        
+        body: JSON.stringify({
+          selectedAlgorithm: type,
+          array: inputArray,
+          user_id:Email,
+        }),
+      });
+
+      const data = await response.json();
+      if (!data.success) {
+        console.error("Failed to save sorting data:", data.message);
+      }
+    } catch (error) {
+      console.error("Error saving sorting data:", error);
+    }
   };
-
-  // const handleUserInputSubmit = async () => {
-  //   const type = selectedAlgorithm;
-
-  //   if (!inputData.trim()) {
-  //     setShowInputError(true);
-  //     setInputErrorMessage("Please enter some numbers.");
-  //     return;
-  //   }
-
-  //   const inputArray = inputData.split(",").map((item) => {
-  //     const num = Number(item.trim());
-  //     return isNaN(num) ? null : num;
-  //   });
-
-  //   if (inputArray.some((item) => item === null)) {
-  //     setShowInputError(true);
-  //     setInputErrorMessage(
-  //       "Input contains invalid numbers. Please use a comma-separated list of numbers."
-  //     );
-  //     return;
-  //   }
-
-  //   if (inputArray.length < 2) {
-  //     setShowInputError(true);
-  //     setInputErrorMessage("Please enter at least 2 numbers to sort.");
-  //     return;
-  //   }
-
-  //   if (inputArray.length > 100) {
-  //     setShowInputError(true);
-  //     setInputErrorMessage(
-  //       "Please enter at most 100 numbers for optimal visualization."
-  //     );
-  //     return;
-  //   }
-
-  //   setShowInputError(false);
-  //   setInputErrorMessage("");
-
-  //   // Set data for visualization
-  //   setArray(inputArray);
-  //   setOriginalArray([...inputArray]);
-  //   resetSortState();
-  //   setShowGraph(true);
-
-  //   // Save data to database
-  //   try {
-  //     const response = await fetch('http://localhost:3000/api/sorting', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         selectedAlgorithm: type,
-  //         array: inputArray
-  //       }),
-  //     });
-
-  //     const data = await response.json();
-  //     if (!data.success) {
-  //       console.error("Failed to save sorting data:", data.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error saving sorting data:", error);
-  //   }
-  // };
 
   useEffect(() => {
     return () => {

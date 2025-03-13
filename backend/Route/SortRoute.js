@@ -7,6 +7,6 @@ const {
 
 router.post("/sorting", saveSortingData);
 
-router.get("/sorting", getSortingData);
+router.get("/Getsorting/:email", getSortingData);
 
 module.exports = router;

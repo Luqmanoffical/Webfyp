@@ -2,14 +2,13 @@ const connectDB = require("../Config/db.js");
 
 const saveSortingData = (req, res) => {
   try {
-    const { selectedAlgorithm, array } = req.body;
+    const { selectedAlgorithm, array , user_id } = req.body;
 
     if (!selectedAlgorithm) {
       return res
         .status(400)
         .json({ success: false, message: "Algorithm type is required" });
     }
-
     if (!array || !Array.isArray(array)) {
       return res
         .status(400)
@@ -52,16 +51,15 @@ const saveSortingData = (req, res) => {
 
     const arrayString = JSON.stringify(array);
     const query =
-      "INSERT INTO sorting_data (algorithm, array_data, created_at) VALUES (?, ?, NOW())";
+      "INSERT INTO sorting_data (algorithm, array_data, created_at , user_id) VALUES (?, ?, NOW() , ?)";
 
-    connectDB.query(query, [selectedAlgorithm, arrayString], (err, result) => {
+    connectDB.query(query, [selectedAlgorithm, arrayString , user_id], (err, result) => {
       if (err) {
         console.error("Database error:", err);
         return res
           .status(500)
           .json({ success: false, message: "Failed to save sorting data" });
       }
-
       return res.status(201).json({
         success: true,
         message: "Sorting data saved successfully",
@@ -82,17 +80,19 @@ const saveSortingData = (req, res) => {
 
 const getSortingData = (req, res) => {
   try {
-    const query =
-      "SELECT id, algorithm, array_data, created_at FROM sorting_data ORDER BY created_at DESC LIMIT 50";
+    const { email } = req.params;
+    const query = "SELECT id, algorithm, array_data, created_at  FROM sorting_data  WHERE user_id = ?  ORDER BY created_at DESC  LIMIT 50;"
+    
+    console.log("This is the email" , email);
+    const cleanedEmail = email.replace(/^email=/, '');
 
-    connectDB.query(query, (err, results) => {
+    connectDB.query(query, cleanedEmail , (err, results) => {
       if (err) {
         console.error("Database error:", err);
         return res
           .status(500)
           .json({ success: false, message: "Failed to retrieve sorting data" });
       }
-
       const formattedResults = results.map((item) => ({
         id: item.id,
         algorithm: item.algorithm,

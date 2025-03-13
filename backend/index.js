@@ -10,8 +10,9 @@ const Port = process.env.PORT;
 app.use(cors());
 
 app.use(bodyParser.json());
-const AuthRoute = require("./Routes/AuthRoutes");
-const SortingRoute = require("./Routes/SortingRoutes");
+
+const AuthRoute = require("./Route/AuthRoutes");
+const SortingRoute = require("./Route/SortRoute");
 
 app.use("/", AuthRoute);
 app.use("/api", SortingRoute);
