@@ -364,7 +364,6 @@ const SortingVisualizer = () => {
     setIsPaused(false);
   };
 
- 
   const handleUserInputSubmit = async () => {
     const type = selectedAlgorithm;
 
@@ -404,25 +403,23 @@ const SortingVisualizer = () => {
     setShowInputError(false);
     setInputErrorMessage("");
 
-    // Set data for visualization
     setArray(inputArray);
     setOriginalArray([...inputArray]);
     resetSortState();
     setShowGraph(true);
 
-    // Save data to database
     try {
       const Email = localStorage.getItem("Email");
-      const response = await fetch('http://localhost:3000/api/sorting', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/api/sorting", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        
+
         body: JSON.stringify({
           selectedAlgorithm: type,
           array: inputArray,
-          user_id:Email,
+          user_id: Email,
         }),
       });
 
