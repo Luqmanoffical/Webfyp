@@ -568,7 +568,7 @@ const SortingVisualizer = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-lg">
+          <div className="p-4 rounded-lg max-sm:flex max-sm:flex-col max-sm:justify-center items-center">
             <h2 className="text-lg font-semibold mb-2">Select Algorithm</h2>
             <div className="flex flex-wrap gap-2">
               <select
