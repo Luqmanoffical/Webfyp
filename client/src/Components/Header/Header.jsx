@@ -96,17 +96,32 @@ const Navbar = () => {
               Home
             </NavLink>
             {login ? (
-              <div>
-                <h1
-                  onClick={handleLogout}
-                  className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
-                    activeLink === "/signup"
-                      ? "text-purple-400 border-b border-purple-700"
-                      : ""
-                  }`}
-                >
-                  Logout
-                </h1>
+              <div className="flex flex-col gap-6 w-full">
+                <div>
+                  <NavLink
+                    to="/history"
+                    onClick={() => setActiveLink("/signup")}
+                    className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                      activeLink === "/history"
+                        ? "text-purple-400 border-b border-purple-700"
+                        : ""
+                    }`}
+                  >
+                    History
+                  </NavLink>
+                </div>
+                <div>
+                  <h1
+                    onClick={handleLogout}
+                    className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                      activeLink === "/signup"
+                        ? "text-purple-400 border-b border-purple-700"
+                        : ""
+                    }`}
+                  >
+                    Logout
+                  </h1>
+                </div>
               </div>
             ) : (
               <div>
@@ -153,7 +168,21 @@ const Navbar = () => {
           </NavLink>
 
           {login ? (
-            <div>
+            <div className="flex gap-2">
+              <div>
+                <NavLink
+                  to="/history"
+                  onClick={() => setActiveLink("/signup")}
+                  className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                    activeLink === "/history"
+                      ? "text-purple-400 border-b border-purple-700"
+                      : ""
+                  }`}
+                >
+                  History
+                </NavLink>
+              </div>
+
               <h1
                 onClick={handleLogout}
                 className={`mx-2 lg:mx-4 hover:text-purple-400 font-code text-base lg:text-lg border-b border-transparent hover:border-purple-900 ${
