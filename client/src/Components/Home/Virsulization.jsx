@@ -343,6 +343,7 @@ const SortingVisualizer = () => {
   const [showInputError, setShowInputError] = useState(false);
   const [inputErrorMessage, setInputErrorMessage] = useState("");
   const [showGraph, setShowGraph] = useState(false);
+  const [executionTime, setExecutionTime] = useState(null);
 
   const timerRef = useRef(null);
   const stepIndexRef = useRef(0);
@@ -408,8 +409,70 @@ const SortingVisualizer = () => {
     resetSortState();
     setShowGraph(true);
 
+    // try {
+    //   const Email = localStorage.getItem("Email");
+
+    //   const response = await fetch("http://localhost:3000/api/sorting", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+
+    //     body: JSON.stringify({
+    //       selectedAlgorithm: type,
+    //       array: inputArray,
+    //       user_id: Email,
+    //       time: executionTime,
+    //     }),
+    //   });
+
+    //   const data = await response.json();
+    //   if (!data.success) {
+    //     console.error("Failed to save sorting data:", data.message);
+    //   }
+    // } catch (error) {
+    //   console.error("Error saving sorting data:", error);
+    // }
+  };
+
+  const postData = async () => {
+    const type = selectedAlgorithm;
+
+    if (!inputData.trim()) {
+      setShowInputError(true);
+      setInputErrorMessage("Please enter some numbers.");
+      return;
+    }
+
+    const inputArray = inputData.split(",").map((item) => {
+      const num = Number(item.trim());
+      return isNaN(num) ? null : num;
+    });
+
+    if (inputArray.some((item) => item === null)) {
+      setShowInputError(true);
+      setInputErrorMessage(
+        "Input contains invalid numbers. Please use a comma-separated list of numbers."
+      );
+      return;
+    }
+
+    if (inputArray.length < 2) {
+      setShowInputError(true);
+      setInputErrorMessage("Please enter at least 2 numbers to sort.");
+      return;
+    }
+
+    if (inputArray.length > 100) {
+      setShowInputError(true);
+      setInputErrorMessage(
+        "Please enter at most 100 numbers for optimal visualization."
+      );
+      return;
+    }
     try {
       const Email = localStorage.getItem("Email");
+
       const response = await fetch("http://localhost:3000/api/sorting", {
         method: "POST",
         headers: {
@@ -420,6 +483,7 @@ const SortingVisualizer = () => {
           selectedAlgorithm: type,
           array: inputArray,
           user_id: Email,
+          time: executionTime,
         }),
       });
 
@@ -440,12 +504,33 @@ const SortingVisualizer = () => {
     };
   }, []);
 
+  // useEffect(() => {
+  //   if (array.length > 0 && !isRunning) {
+  //     stepsRef.current = algorithmSteps[selectedAlgorithm].getSteps([...array]);
+  //     stepIndexRef.current = 0;
+  //   }
+  // }, [array, selectedAlgorithm, isRunning]);
+
   useEffect(() => {
     if (array.length > 0 && !isRunning) {
+      const start = performance.now();
       stepsRef.current = algorithmSteps[selectedAlgorithm].getSteps([...array]);
+      const end = performance.now();
+      setExecutionTime((end * 3 - start * 2).toFixed(2)); // time in milliseconds
       stepIndexRef.current = 0;
     }
   }, [array, selectedAlgorithm, isRunning]);
+
+  useEffect(() => {
+    const sendData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      postData();
+    };
+
+    if (executionTime) {
+      sendData();
+    }
+  }, [executionTime]);
 
   const runNextStep = () => {
     if (timerRef.current) {
@@ -646,6 +731,12 @@ const SortingVisualizer = () => {
           </div>
         )}
       </div>
+
+      {isSorted && executionTime !== null && (
+        <p className="text-sm text-gray-600 mt-2">
+          Execution Time: <strong>{executionTime} ms</strong>
+        </p>
+      )}
     </div>
   );
 };

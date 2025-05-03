@@ -175,6 +175,7 @@ function History() {
                   <th className="px-4 py-2 text-left">ID</th>
                   <th className="px-4 py-2 text-left">Algorithm</th>
                   <th className="px-4 py-2 text-left">Array Data</th>
+                  <th className="px-4 py-2 text-left">Execution Time</th>
                   <th className="px-4 py-2 text-left">Created At</th>
                 </tr>
               </thead>
@@ -197,6 +198,7 @@ function History() {
                       <td className="px-4 py-2">{item.id}</td>
                       <td className="px-4 py-2">{item.algorithm}</td>
                       <td className="px-4 py-2">{item.array.join(", ")}</td>
+                      <td className="px-4 py-2">{item.time}</td>
                       <td className="px-4 py-2">
                         {formatDate(item.createdAt)}
                       </td>
