@@ -10,6 +10,8 @@ const algorithmSteps = {
       worst: "O(n²)",
       space: "O(1)",
     },
+    description:
+      "Bubble Sort is a simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the list is sorted. With each pass, the largest unsorted element 'bubbles up' to its correct position at the end of the list. Though easy to understand and implement, it is not efficient for large datasets.",
     getSteps: (array) => {
       const steps = [];
       const arr = [...array];
@@ -56,6 +58,8 @@ const algorithmSteps = {
       worst: "O(n²)",
       space: "O(log n)",
     },
+    description:
+      "Quick Sort is an efficient, divide-and-conquer algorithm that works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays—those less than the pivot and those greater than the pivot. It then recursively sorts the sub-arrays. This process continues until the array is completely sorted. Quick Sort is faster than many other algorithms for large datasets, although its worst-case performance can be poor if the pivot is not chosen wisely.",
     getSteps: (array) => {
       const steps = [];
       const arr = [...array];
@@ -119,6 +123,8 @@ const algorithmSteps = {
       worst: "O(n log n)",
       space: "O(n)",
     },
+    description:
+      "Merge Sort is a stable, divide-and-conquer algorithm that divides the input array into two halves, recursively sorts them, and then merges the two sorted halves into a single sorted array. The merging process ensures the overall order is maintained. Unlike some other sorting algorithms, Merge Sort consistently performs well even on large datasets, but it requires additional space for the temporary arrays used during merging.",
     getSteps: (array) => {
       const steps = [];
       const arr = [...array];
@@ -215,6 +221,8 @@ const algorithmSteps = {
       worst: "O(n²)",
       space: "O(1)",
     },
+    description:
+      "Insertion Sort is a simple and intuitive algorithm that builds the final sorted array one element at a time. It works by picking each element from the unsorted part and inserting it into its correct position in the sorted part of the array. This method is efficient for small datasets or nearly sorted data, but it becomes less efficient as the size of the dataset grows due to its quadratic time complexity.",
     getSteps: (array) => {
       const steps = [];
       const arr = [...array];
@@ -275,6 +283,8 @@ const algorithmSteps = {
       worst: "O(n²)",
       space: "O(1)",
     },
+    description:
+      "Selection Sort is a straightforward comparison-based algorithm that sorts an array by repeatedly finding the minimum (or maximum) element from the unsorted part and moving it to the beginning (or end) of the sorted part. It divides the array into a sorted and an unsorted region, and at each step, it selects the smallest unsorted element and swaps it with the first unsorted position. While easy to understand, it is not efficient for large datasets due to its consistent quadratic time complexity.",
     getSteps: (array) => {
       const steps = [];
       const arr = [...array];
@@ -408,31 +418,6 @@ const SortingVisualizer = () => {
     setOriginalArray([...inputArray]);
     resetSortState();
     setShowGraph(true);
-
-    // try {
-    //   const Email = localStorage.getItem("Email");
-
-    //   const response = await fetch("http://localhost:3000/api/sorting", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-
-    //     body: JSON.stringify({
-    //       selectedAlgorithm: type,
-    //       array: inputArray,
-    //       user_id: Email,
-    //       time: executionTime,
-    //     }),
-    //   });
-
-    //   const data = await response.json();
-    //   if (!data.success) {
-    //     console.error("Failed to save sorting data:", data.message);
-    //   }
-    // } catch (error) {
-    //   console.error("Error saving sorting data:", error);
-    // }
   };
 
   const postData = async () => {
@@ -504,19 +489,12 @@ const SortingVisualizer = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (array.length > 0 && !isRunning) {
-  //     stepsRef.current = algorithmSteps[selectedAlgorithm].getSteps([...array]);
-  //     stepIndexRef.current = 0;
-  //   }
-  // }, [array, selectedAlgorithm, isRunning]);
-
   useEffect(() => {
     if (array.length > 0 && !isRunning) {
       const start = performance.now();
       stepsRef.current = algorithmSteps[selectedAlgorithm].getSteps([...array]);
       const end = performance.now();
-      setExecutionTime((end * 3 - start * 2).toFixed(2)); // time in milliseconds
+      setExecutionTime((end - start).toFixed(2));
       stepIndexRef.current = 0;
     }
   }, [array, selectedAlgorithm, isRunning]);
@@ -653,7 +631,7 @@ const SortingVisualizer = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-lg max-sm:flex max-sm:flex-col max-sm:justify-center items-center">
+          <div className="p-4 rounded-lg flex  items-end flex-col max-sm:justify-center max-sm:items-center">
             <h2 className="text-lg font-semibold mb-2">Select Algorithm</h2>
             <div className="flex flex-wrap gap-2">
               <select
@@ -671,7 +649,12 @@ const SortingVisualizer = () => {
             </div>
           </div>
         </div>
-
+        <div className="p-4 rounded-lg bg-[#00000050] text-white">
+          <h1 className="text-sm font-semibold mb-1">Description:</h1>
+          <p className="text-xs font-semibold mb-1">
+            {algorithmSteps[selectedAlgorithm].description}
+          </p>
+        </div>
         <div className="p-4 rounded-lg mb-4">
           <h2 className="text-lg font-semibold mb-2">Enter Custom Array</h2>
           <div className="flex flex-col md:flex-row gap-2">
