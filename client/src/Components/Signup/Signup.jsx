@@ -41,7 +41,7 @@ const Signup = () => {
       const result = await response.json();
 
       if (response.ok) {
-        toast.success("Registration successful! 🎉");
+        toast.success("Registration successful! ");
 
         setTimeout(() => {
           navigate("/login");

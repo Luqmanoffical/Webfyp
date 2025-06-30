@@ -11,7 +11,7 @@ const algorithmSteps = {
       space: "O(1)",
     },
     description:
-      "Bubble Sort is a simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the list is sorted. With each pass, the largest unsorted element 'bubbles up' to its correct position at the end of the list. Though easy to understand and implement, it is not efficient for large datasets.",
+      "Bubble Sort is a simple comparison based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the list is sorted. With each pass, the largest unsorted element 'bubbles up' to its correct position at the end of the list. Though easy to understand and implement, it is not efficient for large datasets.",
     getSteps: (array) => {
       const steps = [];
       const arr = [...array];
@@ -494,7 +494,8 @@ const SortingVisualizer = () => {
       const start = performance.now();
       stepsRef.current = algorithmSteps[selectedAlgorithm].getSteps([...array]);
       const end = performance.now();
-      setExecutionTime((end - start).toFixed(2));
+      console.log(end - start);
+      setExecutionTime((end + 1 - start).toFixed(3));
       stepIndexRef.current = 0;
     }
   }, [array, selectedAlgorithm, isRunning]);
