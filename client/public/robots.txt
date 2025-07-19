@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://algorithms-simulator.vercel.app/sitemap.xml
