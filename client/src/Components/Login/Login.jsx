@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import signinimg from "../../assets/signinimg.png";
+import { Helmet } from "react-helmet";
 
 import { useNavigate } from "react-router-dom";
 
@@ -55,6 +56,88 @@ const Register = () => {
 
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Login to Algorithms Simulator | Secure Account Access</title>
+        <meta
+          name="title"
+          content="Login to Algorithms Simulator | Secure Account Access"
+        />
+        <meta
+          name="description"
+          content="Sign in to your Algorithms Simulator account to track your sorting algorithm simulations, access personalized tools, and enhance your learning experience."
+        />
+        <meta
+          name="keywords"
+          content="login, sign in, algorithm simulator, sorting visualization login, educational tool login, algorithms, quicksort login, bubble sort login, insertion sort login"
+        />
+        <meta name="author" content="Algorithms Simulator Team" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yoursite.com/login" />
+        <meta
+          property="og:title"
+          content="Login to Algorithms Simulator | Secure Account Access"
+        />
+        <meta
+          property="og:description"
+          content="Sign in to continue exploring animated sorting algorithms, user analytics, and personalized learning features."
+        />
+        <meta
+          property="og:image"
+          content="https://yoursite.com/assets/algorithms-simulator-preview.jpg"
+        />
+        <meta property="og:site_name" content="Algorithms Simulator" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://yoursite.com/login" />
+        <meta
+          property="twitter:title"
+          content="Login to Algorithms Simulator | Secure Account Access"
+        />
+        <meta
+          property="twitter:description"
+          content="Access your Algorithms Simulator account to experience real-time sorting animations and interactive algorithm visualizations."
+        />
+        <meta
+          property="twitter:image"
+          content="https://yoursite.com/assets/algorithms-simulator-preview.jpg"
+        />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://yoursite.com/login" />
+
+        {/* Structured Data - JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Login - Algorithms Simulator",
+            description:
+              "Access your Algorithms Simulator account to visualize and learn sorting algorithms interactively.",
+            url: "https://yoursite.com/login",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Algorithms Simulator",
+              url: "https://yoursite.com",
+            },
+            inLanguage: "en",
+            potentialAction: {
+              "@type": "ViewAction",
+              target: "https://yoursite.com/login",
+              name: "Login Page",
+            },
+          })}
+        </script>
+      </Helmet>
+
       <Navbar />
       <div className="min-h-screen font-poppins flex flex-col lg:flex-row bg-[#0000003a]">
         {/* Left Section - Graphic and Welcome Text */}
@@ -66,9 +149,7 @@ const Register = () => {
           <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#566fdf] to-[purple] tracking-wider mt-20 text-center drop-shadow-lg">
             Welcome
           </h1>
-          <p className="text-sm pt-2  sm:text-[20px]">
-            Web Based Animated Simulator for Sorting Algorithms
-          </p>
+          <p className="text-sm pt-2  sm:text-[20px]">Algorithms Simulator </p>
 
           <img src={signinimg} className="w-[500px]" />
         </div>

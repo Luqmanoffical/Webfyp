@@ -21,26 +21,27 @@ const Footer = () => (
         <div className="flex flex-col lg:flex-row items-center  px-8 justify-between flex-wrap gap-4 -mt-10">
           <div className="flex justify-center mb-4 md:mb-0">
             <Link to="/">
-              <h1 className="text-white font-bold text-lg">FYP</h1>
+              <h1 className="text-white font-bold  font-grotesk text-lg">
+                Algorithms Simulator
+              </h1>
             </Link>
           </div>
 
-          {/* <div className="flex flex-col md:flex-row items-center space-x-0 md:space-x-6 lg:space-x-10 mb-4 md:mb-0">
-            {["/news", "/faqs", "/policy", "/conditions", "/blog"].map(
+          <div className="flex flex-col md:flex-row z-50 items-center space-x-0 md:space-x-6 lg:space-x-10 mb-4 md:mb-0">
+            {["/privacy-policy", "/terms", "/faqs", "/about-us"].map(
               (path, index) => {
                 const titles = [
-                  "Latest News",
-                  "FAQs",
                   "Privacy Policy",
                   "Terms & Conditions",
-                  "Blog",
+                  "FAQs",
+                  "About Us",
                 ];
                 return (
                   <Link
                     key={index}
                     to={path}
                     className={({ isActive }) =>
-                      `text-base lg:text-lg font-semibold ${
+                      `text-base lg:text-lg cursor-pointer  font-semibold ${
                         isActive ? "text-purple-600" : "text-white"
                       } hover:text-purple-600 cursor-pointer mb-2 md:mb-0`
                     }
@@ -50,7 +51,7 @@ const Footer = () => (
                 );
               }
             )}
-          </div> */}
+          </div>
 
           <div className="flex justify-center gap-4 mb-4 md:mb-0">
             {socials.map((social) => (
@@ -66,7 +67,7 @@ const Footer = () => (
 
         <div className="text-center mx-5 mt-4">
           <p className="text-[14px] text-white font-normal opacity-50">
-            Copyright © 2025 VU FYP. All rights reserved.
+            Copyright © 2025 Algorithms Simulator. All rights reserved.
           </p>
         </div>
       </div>

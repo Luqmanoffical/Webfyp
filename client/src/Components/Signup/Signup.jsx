@@ -2,6 +2,7 @@ import React from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import Navbar from "../Header/Header";
+import { Helmet } from "react-helmet";
 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -56,6 +57,101 @@ const Signup = () => {
 
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>
+          Free Signup | Create Account - Sorting Algorithm Simulator
+        </title>
+        <meta
+          name="title"
+          content="Free Signup | Create Account - Sorting Algorithm Simulator"
+        />
+        <meta
+          name="description"
+          content="Sign up for free to access the best web-based animated sorting algorithm simulator. Visualize Bubble Sort, Quick Sort, Merge Sort, and more with real-time animations."
+        />
+        <meta
+          name="keywords"
+          content="signup sorting simulator, sorting algorithm visualizer, learn bubble sort online, quick sort visualization, merge sort step by step, sorting animation tool, react sorting simulator, register algorithm simulator"
+        />
+        <meta name="author" content="Algorithms Simulator Team" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yoursite.vercel.app/signup" />
+        <meta
+          property="og:title"
+          content="Free Signup | Create Account - Sorting Algorithm Simulator"
+        />
+        <meta
+          property="og:description"
+          content="Create your free account to explore animated sorting algorithm simulations. Learn sorting visually with our educational platform."
+        />
+        <meta
+          property="og:image"
+          content="https://yoursite.vercel.app/og-image.jpg"
+        />
+        <meta property="og:site_name" content="Algorithms Simulator" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content="https://yoursite.vercel.app/signup"
+        />
+        <meta
+          property="twitter:title"
+          content="Free Signup | Sorting Algorithm Simulator"
+        />
+        <meta
+          property="twitter:description"
+          content="Join our platform to visually understand Bubble Sort, Quick Sort, and more. Free, interactive, and educational."
+        />
+        <meta
+          property="twitter:image"
+          content="https://yoursite.vercel.app/og-image.jpg"
+        />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://yoursite.vercel.app/signup" />
+
+        {/* Structured Data - JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Algorithms Simulator",
+            description:
+              "An interactive platform to learn sorting algorithms visually. Register to simulate and understand Bubble Sort, Quick Sort, Merge Sort, and more.",
+            url: "https://yoursite.vercel.app/signup",
+            applicationCategory: "EducationalApplication",
+            operatingSystem: "Web Browser",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
+            creator: {
+              "@type": "Organization",
+              name: "Algorithms Simulator Team",
+            },
+            keywords: [
+              "sorting algorithm simulator",
+              "sorting visualizer",
+              "bubble sort animation",
+              "quick sort online tool",
+              "merge sort visualizer",
+              "free react simulator",
+            ],
+          })}
+        </script>
+      </Helmet>
+
       <Navbar />
       <div className="mt-16 min-h-screen bg-transparent flex items-center justify-center py-10">
         <div className="flex flex-col md:flex-row w-full max-w-7xl bg-transparent rounded-3xl shadow-[10px] overflow-hidden neon-border-purple">
@@ -70,7 +166,7 @@ const Signup = () => {
               Registered Now
             </h2>
             <p className="text-white mt-4 text-center leading-relaxed">
-              Web Based Animated Simulator for Sorting Algorithms
+              Algorithms Simulator{" "}
             </p>
           </div>
 

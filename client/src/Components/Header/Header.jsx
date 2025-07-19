@@ -67,7 +67,9 @@ const Navbar = () => {
         className={`${styles.innerWidth} mx-auto flex justify-between items-center`}
       >
         <NavLink to="/">
-          <h1 className="text-white font-bold text-lg">FYP</h1>
+          <h1 className="text-white font-bold font-grotesk text-lg">
+            Algorithms Simulator
+          </h1>
         </NavLink>
 
         <button onClick={toggleMenu} className="block md:hidden text-white">
@@ -95,6 +97,32 @@ const Navbar = () => {
             >
               Home
             </NavLink>
+
+            <NavLink
+              to="/why-choose-us"
+              exact
+              onClick={() => setActiveLink("/why-choose-us")}
+              className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                activeLink === "/why-choose-us"
+                  ? "text-purple-400 border-b border-purple-700"
+                  : ""
+              }`}
+            >
+              Why Choose Us
+            </NavLink>
+            <NavLink
+              to="/contact-us"
+              exact
+              onClick={() => setActiveLink("/contact-us")}
+              className={`my-2 mx-4 hover:text-purple-400 font-code text-lg border-b border-transparent hover:border-purple-900 ${
+                activeLink === "/"
+                  ? "text-purple-400 border-b border-purple-700"
+                  : ""
+              }`}
+            >
+              Contact Us
+            </NavLink>
+
             {login ? (
               <div className="flex flex-col gap-6 w-full">
                 <div>
@@ -165,6 +193,31 @@ const Navbar = () => {
             }`}
           >
             Home
+          </NavLink>
+
+          <NavLink
+            to="/why-choose-us"
+            exact
+            onClick={() => setActiveLink("/why-choose-us")}
+            className={` mx-2 lg:mx-4 hover:text-purple-400 font-code text-base lg:text-lg border-b border-transparent hover:border-purple-900 ${
+              activeLink === "/why-choose-us"
+                ? "text-purple-400 border-b border-purple-700"
+                : ""
+            }`}
+          >
+            Why Choose Us
+          </NavLink>
+          <NavLink
+            to="/contact-us"
+            exact
+            onClick={() => setActiveLink("/contact-us")}
+            className={` mx-2 lg:mx-4 hover:text-purple-400 font-code text-base lg:text-lg border-b border-transparent hover:border-purple-900 ${
+              activeLink === "/contact-us"
+                ? "text-purple-400 border-b border-purple-700"
+                : ""
+            }`}
+          >
+            Contact Us
           </NavLink>
 
           {login ? (
