@@ -606,7 +606,7 @@ const SortingVisualizer = () => {
     <div className="w-full h-full p-4 flex flex-col items-center">
       <div className="p-6 rounded-3xl w-full max-w-6xl shadow-lg">
         <h1 className="text-2xl font-bold text-center text-gray-100 mb-2">
-          Sorting Algorithm Visualizer
+          Algorithms Sorting Visualizer
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
