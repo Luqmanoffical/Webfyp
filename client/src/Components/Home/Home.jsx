@@ -30,29 +30,35 @@ const Home = () => {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoursite.com/" />
+        <meta
+          property="og:url"
+          content="https://algorithms-simulator.vercel.app/"
+        />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta
           property="og:image"
-          content="https://yoursite.com/algorithms-simulator-preview.jpg"
+          content="https://algorithms-simulator.vercel.app/algorithms-simulator-preview.jpg"
         />
         <meta property="og:site_name" content="Algorithms Simulator" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://yoursite.com/" />
+        <meta
+          property="twitter:url"
+          content="https://algorithms-simulator.vercel.app/"
+        />
         <meta property="twitter:title" content={pageTitle} />
         <meta property="twitter:description" content={pageDescription} />
         <meta
           property="twitter:image"
-          content="https://yoursite.com/algorithms-simulator-preview.jpg"
+          content="https://algorithms-simulator.vercel.app/algorithms-simulator-preview.jpg"
         />
 
         {/* Additional SEO Meta Tags */}
         <meta name="theme-color" content="#1a1a1a" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://yoursite.com/" />
+        <link rel="canonical" href="https://algorithms-simulator.vercel.app/" />
 
         {/* Structured Data - JSON-LD */}
         <script type="application/ld+json">
@@ -61,7 +67,7 @@ const Home = () => {
             "@type": "WebApplication",
             name: "Algorithms Simulator",
             description: pageDescription,
-            url: "https://yoursite.com",
+            url: "https://algorithms-simulator.vercel.app",
             applicationCategory: "EducationalApplication",
             operatingSystem: "Web Browser",
             offers: {

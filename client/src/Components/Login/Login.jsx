@@ -78,7 +78,10 @@ const Register = () => {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoursite.com/login" />
+        <meta
+          property="og:url"
+          content="https://algorithms-simulator.vercel.app/login"
+        />
         <meta
           property="og:title"
           content="Login to Algorithms Simulator | Secure Account Access"
@@ -89,13 +92,16 @@ const Register = () => {
         />
         <meta
           property="og:image"
-          content="https://yoursite.com/assets/algorithms-simulator-preview.jpg"
+          content="https://algorithms-simulator.vercel.app/assets/algorithms-simulator-preview.jpg"
         />
         <meta property="og:site_name" content="Algorithms Simulator" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://yoursite.com/login" />
+        <meta
+          property="twitter:url"
+          content="https://algorithms-simulator.vercel.app/login"
+        />
         <meta
           property="twitter:title"
           content="Login to Algorithms Simulator | Secure Account Access"
@@ -106,13 +112,16 @@ const Register = () => {
         />
         <meta
           property="twitter:image"
-          content="https://yoursite.com/assets/algorithms-simulator-preview.jpg"
+          content="https://algorithms-simulator.vercel.app/assets/algorithms-simulator-preview.jpg"
         />
 
         {/* Additional SEO Meta Tags */}
         <meta name="theme-color" content="#1a1a1a" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://yoursite.com/login" />
+        <link
+          rel="canonical"
+          href="https://algorithms-simulator.vercel.app/login"
+        />
 
         {/* Structured Data - JSON-LD */}
         <script type="application/ld+json">
@@ -122,16 +131,16 @@ const Register = () => {
             name: "Login - Algorithms Simulator",
             description:
               "Access your Algorithms Simulator account to visualize and learn sorting algorithms interactively.",
-            url: "https://yoursite.com/login",
+            url: "https://algorithms-simulator.vercel.app/login",
             isPartOf: {
               "@type": "WebSite",
               name: "Algorithms Simulator",
-              url: "https://yoursite.com",
+              url: "https://algorithms-simulator.vercel.app",
             },
             inLanguage: "en",
             potentialAction: {
               "@type": "ViewAction",
-              target: "https://yoursite.com/login",
+              target: "https://algorithms-simulator.vercel.app/login",
               name: "Login Page",
             },
           })}

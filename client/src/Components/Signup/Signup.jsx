@@ -81,7 +81,10 @@ const Signup = () => {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoursite.vercel.app/signup" />
+        <meta
+          property="og:url"
+          content="https://algorithms-simulator.vercel.app/signup"
+        />
         <meta
           property="og:title"
           content="Free Signup | Create Account - Sorting Algorithm Simulator"
@@ -92,7 +95,7 @@ const Signup = () => {
         />
         <meta
           property="og:image"
-          content="https://yoursite.vercel.app/og-image.jpg"
+          content="https://algorithms-simulator.vercel.app/og-image.jpg"
         />
         <meta property="og:site_name" content="Algorithms Simulator" />
 
@@ -100,7 +103,7 @@ const Signup = () => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content="https://yoursite.vercel.app/signup"
+          content="https://algorithms-simulator.vercel.app/signup"
         />
         <meta
           property="twitter:title"
@@ -112,13 +115,16 @@ const Signup = () => {
         />
         <meta
           property="twitter:image"
-          content="https://yoursite.vercel.app/og-image.jpg"
+          content="https://algorithms-simulator.vercel.app/og-image.jpg"
         />
 
         {/* Additional SEO Meta Tags */}
         <meta name="theme-color" content="#1a1a1a" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://yoursite.vercel.app/signup" />
+        <link
+          rel="canonical"
+          href="https://algorithms-simulator.vercel.app/signup"
+        />
 
         {/* Structured Data - JSON-LD */}
         <script type="application/ld+json">
@@ -128,7 +134,7 @@ const Signup = () => {
             name: "Algorithms Simulator",
             description:
               "An interactive platform to learn sorting algorithms visually. Register to simulate and understand Bubble Sort, Quick Sort, Merge Sort, and more.",
-            url: "https://yoursite.vercel.app/signup",
+            url: "https://algorithms-simulator.vercel.app/signup",
             applicationCategory: "EducationalApplication",
             operatingSystem: "Web Browser",
             offers: {

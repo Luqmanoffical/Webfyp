@@ -69,13 +69,16 @@ const AboutUs = () => {
             content="width=device-width, initial-scale=1.0"
           />
           <meta name="theme-color" content="#1e1b4b" />
-          <link rel="canonical" href="https://sortsimulator.vercel.app/about" />
+          <link
+            rel="canonical"
+            href="https://algorithms-simulator.vercel.app/about"
+          />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta
             property="og:url"
-            content="https://sortsimulator.vercel.app/about"
+            content="https://algorithms-simulator.vercel.app/about"
           />
           <meta
             property="og:title"
@@ -87,7 +90,7 @@ const AboutUs = () => {
           />
           <meta
             property="og:image"
-            content="https://sortsimulator.vercel.app/assets/about-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/about-preview.jpg"
           />
           <meta property="og:site_name" content="Algorithms Simulator" />
 
@@ -95,7 +98,7 @@ const AboutUs = () => {
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
-            content="https://sortsimulator.vercel.app/about"
+            content="https://algorithms-simulator.vercel.app/about"
           />
           <meta
             property="twitter:title"
@@ -107,7 +110,7 @@ const AboutUs = () => {
           />
           <meta
             property="twitter:image"
-            content="https://sortsimulator.vercel.app/assets/about-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/about-preview.jpg"
           />
 
           {/* Structured Data - JSON-LD Schema */}
@@ -118,17 +121,17 @@ const AboutUs = () => {
               name: "About Algorithms Simulator",
               description:
                 "Learn about Algorithms Simulator, a platform dedicated to making sorting algorithms easy to understand through interactive visualizations.",
-              url: "https://sortsimulator.vercel.app/about",
+              url: "https://algorithms-simulator.vercel.app/about",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://sortsimulator.vercel.app/about",
+                "@id": "https://algorithms-simulator.vercel.app/about",
               },
               publisher: {
                 "@type": "Organization",
                 name: "Algorithms Simulator",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://sortsimulator.vercel.app/assets/logo.png",
+                  url: "https://algorithms-simulator.vercel.app/assets/logo.png",
                 },
               },
               inLanguage: "en",
@@ -285,13 +288,16 @@ const TermsConditions = () => {
             content="width=device-width, initial-scale=1.0"
           />
           <meta name="theme-color" content="#1e1b4b" />
-          <link rel="canonical" href="https://sortsimulator.vercel.app/terms" />
+          <link
+            rel="canonical"
+            href="https://algorithms-simulator.vercel.app/terms"
+          />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta
             property="og:url"
-            content="https://sortsimulator.vercel.app/terms"
+            content="https://algorithms-simulator.vercel.app/terms"
           />
           <meta
             property="og:title"
@@ -303,7 +309,7 @@ const TermsConditions = () => {
           />
           <meta
             property="og:image"
-            content="https://sortsimulator.vercel.app/assets/terms-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/terms-preview.jpg"
           />
           <meta property="og:site_name" content="Algorithms Simulator" />
 
@@ -311,7 +317,7 @@ const TermsConditions = () => {
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
-            content="https://sortsimulator.vercel.app/terms"
+            content="https://algorithms-simulator.vercel.app/terms"
           />
           <meta
             property="twitter:title"
@@ -323,7 +329,7 @@ const TermsConditions = () => {
           />
           <meta
             property="twitter:image"
-            content="https://sortsimulator.vercel.app/assets/terms-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/terms-preview.jpg"
           />
 
           {/* Structured Data - JSON-LD Schema */}
@@ -334,17 +340,17 @@ const TermsConditions = () => {
               name: "Terms and Conditions",
               description:
                 "Algorithms Simulator's official Terms and Conditions outlining user rights, platform policies, acceptable use, and intellectual property protection.",
-              url: "https://sortsimulator.vercel.app/terms",
+              url: "https://algorithms-simulator.vercel.app/terms",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://sortsimulator.vercel.app/terms",
+                "@id": "https://algorithms-simulator.vercel.app/terms",
               },
               publisher: {
                 "@type": "Organization",
                 name: "Algorithms Simulator",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://sortsimulator.vercel.app/assets/logo.png",
+                  url: "https://algorithms-simulator.vercel.app/assets/logo.png",
                 },
               },
               inLanguage: "en",
@@ -499,14 +505,14 @@ const PrivacyPolicy = () => {
           <meta name="theme-color" content="#1e1b4b" />
           <link
             rel="canonical"
-            href="https://sortsimulator.vercel.app/privacy"
+            href="https://algorithms-simulator.vercel.app/privacy"
           />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta
             property="og:url"
-            content="https://sortsimulator.vercel.app/privacy"
+            content="https://algorithms-simulator.vercel.app/privacy"
           />
           <meta
             property="og:title"
@@ -518,7 +524,7 @@ const PrivacyPolicy = () => {
           />
           <meta
             property="og:image"
-            content="https://sortsimulator.vercel.app/assets/privacy-policy-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/privacy-policy-preview.jpg"
           />
           <meta property="og:site_name" content="Algorithms Simulator" />
 
@@ -526,7 +532,7 @@ const PrivacyPolicy = () => {
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
-            content="https://sortsimulator.vercel.app/privacy"
+            content="https://algorithms-simulator.vercel.app/privacy"
           />
           <meta
             property="twitter:title"
@@ -538,7 +544,7 @@ const PrivacyPolicy = () => {
           />
           <meta
             property="twitter:image"
-            content="https://sortsimulator.vercel.app/assets/privacy-policy-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/privacy-policy-preview.jpg"
           />
 
           {/* Structured Data - JSON-LD Schema */}
@@ -549,17 +555,17 @@ const PrivacyPolicy = () => {
               name: "Privacy Policy",
               description:
                 "Official privacy policy of Algorithms Simulator detailing how user information is collected, used, stored, and protected through secure technologies.",
-              url: "https://sortsimulator.vercel.app/privacy",
+              url: "https://algorithms-simulator.vercel.app/privacy",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://sortsimulator.vercel.app/privacy",
+                "@id": "https://algorithms-simulator.vercel.app/privacy",
               },
               publisher: {
                 "@type": "Organization",
                 name: "Algorithms Simulator",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://sortsimulator.vercel.app/assets/logo.png",
+                  url: "https://algorithms-simulator.vercel.app/assets/logo.png",
                 },
               },
               inLanguage: "en",
@@ -716,14 +722,14 @@ const ContactUs = () => {
           <meta name="theme-color" content="#4f46e5" />
           <link
             rel="canonical"
-            href="https://sortsimulator.vercel.app/contact"
+            href="https://algorithms-simulator.vercel.app/contact"
           />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta
             property="og:url"
-            content="https://sortsimulator.vercel.app/contact"
+            content="https://algorithms-simulator.vercel.app/contact"
           />
           <meta
             property="og:title"
@@ -735,7 +741,7 @@ const ContactUs = () => {
           />
           <meta
             property="og:image"
-            content="https://sortsimulator.vercel.app/assets/contact-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/contact-preview.jpg"
           />
           <meta property="og:site_name" content="Algorithms Simulator" />
 
@@ -743,7 +749,7 @@ const ContactUs = () => {
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
-            content="https://sortsimulator.vercel.app/contact"
+            content="https://algorithms-simulator.vercel.app/contact"
           />
           <meta
             property="twitter:title"
@@ -755,7 +761,7 @@ const ContactUs = () => {
           />
           <meta
             property="twitter:image"
-            content="https://sortsimulator.vercel.app/assets/contact-preview.jpg"
+            content="https://algorithms-simulator.vercel.app/assets/contact-preview.jpg"
           />
 
           {/* Structured Data - JSON-LD Schema */}
@@ -766,17 +772,17 @@ const ContactUs = () => {
               name: "Contact Us",
               description:
                 "Algorithms Simulator's official contact page for questions, support, educational partnerships, or feedback on algorithm visualizations.",
-              url: "https://sortsimulator.vercel.app/contact",
+              url: "https://algorithms-simulator.vercel.app/contact",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://sortsimulator.vercel.app/contact",
+                "@id": "https://algorithms-simulator.vercel.app/contact",
               },
               publisher: {
                 "@type": "Organization",
                 name: "Algorithms Simulator",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://sortsimulator.vercel.app/assets/logo.png",
+                  url: "https://algorithms-simulator.vercel.app/assets/logo.png",
                 },
               },
               inLanguage: "en",
@@ -1036,7 +1042,10 @@ const FAQ = () => {
           <meta property="og:type" content="website" />
           <meta name="robots" content="index, follow" />
           <meta name="author" content="Algorithms Simulator Team" />
-          <link rel="canonical" href="https://sortsimulator.vercel.app/faq" />
+          <link
+            rel="canonical"
+            href="https://algorithms-simulator.vercel.app/faq"
+          />
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
@@ -1205,7 +1214,7 @@ const WhyChooseUs = () => {
           <meta name="author" content="Algorithms Simulator Team" />
           <link
             rel="canonical"
-            href="https://sortsimulator.vercel.app/why-choose-us"
+            href="https://algorithms-simulator.vercel.app/why-choose-us"
           />
         </Helmet>
 
